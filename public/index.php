@@ -1,11 +1,19 @@
 <?php
-$a = 1;
-$b = 2;
-echo " a = $a";
-echo "b = $b";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config/main.php";
+require_once ROOT_DIR . "/draw.php";
+$dir = opendir('images/');
+ while ($element = readdir($dir)) {
+    if (($element != ".") && ($element != "..")) {
+    echo "<a href='images/{$element}'>"; // Делаем ссылку на картинку
+    echo "<img src= 'images/{$element}' alt='alt' width='100' />"; // Вывод превью картинки
+    echo "</a>";
+    }
+  }
+closedir($dir);
 
-$a = $b;
-$b = 1;
+echo '<br/>';
 
-echo " a = $a";
-echo "b = $b";
+    
+    madeGallery('images');
+  
+?>
