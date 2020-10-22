@@ -1,9 +1,9 @@
 <?php
-    foreach($images as $image) :
-        $imgURL = "/images/$image"?>
-        <a target = '_blank'  href= "<?=$imgURL?>">
-            <img src= "<?=$imgURL?>" alt='alt' width='200'>
-            </a>
+    foreach($photos as $image) :
+        ?>
+        <a target = '_blank'  href= "/photo.php?id=<?=$image['id']?>">
+            <img src= "<?=$image['description']?>" alt='alt' width='200'>
+        </a>
     <? endforeach?>
     
     
