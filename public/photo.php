@@ -8,10 +8,10 @@ $connection = mysqli_connect($host, $login, $password, $db) ;
 $sql = "SELECT * FROM gallery WHERE id = {$id}"; 
 $res = mysqli_query($connection, $sql);
 $photo = mysqli_fetch_all($res, MYSQLI_ASSOC)[0];
+
+include VIEWS_DIR . "photo.php";
+
 ?>
-<img src= "<?=$photo['description']?>" alt='alt'>
-
-
 
 
 
