@@ -1,17 +1,21 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/../config/main.php";
-require_once CONFIG_DIR . "conf.php";
-$id = $_GET['id']; //принимаем id;
+require_once ENGINE_DIR . "base.php";
+require_once ENGINE_DIR . "db.php";
+require_once ENGINE_DIR . "gallery.php";
+$config = include CONFIG_DIR . 'db.php';
+$id = (int) $_REQUEST['id']; //принимаем id;
 
-$connection = mysqli_connect($host, $login, $password, $db) ;
+$text = post('text');
+$sql= execute("INSERT INTO gallery (opinion) VALUES ('$text')");
 
-$sql = "SELECT * FROM gallery WHERE id = {$id}"; 
-$res = mysqli_query($connection, $sql);
-$photo = mysqli_fetch_all($res, MYSQLI_ASSOC)[0];
+
+$photo = getImageById($id);
+incrementImageViews($id);
+
+include VIEWS_DIR . "photo.php";
+
 ?>
-<img src= "<?=$photo['description']?>" alt='alt'>
-
-
 
 
 
