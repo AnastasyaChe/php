@@ -15,10 +15,16 @@ function getConnection(){
     return $connection;
 }
 //выполнение запроса без выборки
-function execute(string $sql) : int {
-   $res = mysqli_query(getConnection(), $sql);
+function execute(string $sql): int
+{
+    $result = mysqli_query(getConnection(), $sql);
+    var_dump($result);
     return mysqli_affected_rows(getConnection());
 }
+
+ 
+
+
 //выполнение запроса когда одна строка содержится в результате
 function queryOne(string $sql) {
 return queryAll($sql)[0];

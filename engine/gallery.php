@@ -11,3 +11,11 @@ function getImageById(int $id) {
 function incrementImageViews(int $id) {
 return execute("UPDATE gallery SET views = views + 1 WHERE id = {$id}");
 }
+
+function updateProduct(int $id, string $data) {
+    if(empty($data)) {
+        return null;
+    }
+    $sql = "UPDATE gallery SET opinion ='{$data}' WHERE id = {$id}";
+    return execute($sql);
+}
