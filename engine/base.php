@@ -13,3 +13,7 @@ function post (string $name) {
     return null;
 
 }
+function redirect(string $url) {
+    header("Location: {$url}");
+}
+
