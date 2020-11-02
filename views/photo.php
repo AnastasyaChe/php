@@ -1,15 +1,25 @@
-<img src= "<?=$photo['description']?>" alt='alt'>
+<img src= "<?=$product['description']?>" alt='alt'>
+<h1><?=$product['name'] ?></h1>
 <h2>Описание товара</h2>
-<p><?=$photo['about'] ?></p>
+<p><?=$product['about'] ?></p>
 <h3>Цена</h3>
-<p><?=$photo['price'] ?></p>
+<p><?=$product['price'] ?></p>
 
-<p>Количество просмотров: <?=$photo['views'] ?></p>
+<p>Количество просмотров: <?=$product['views'] ?></p>
 
-<form action="" method="post" enctype="multipart/form-data">
-    <p><b>Введите ваш отзыв:</b></p>
-    <p><textarea rows="10" cols="45" name="text"></textarea></p>
-    <p><input type="submit"></p>
+<h4>Отзывы</h4>
+<p><?=$product['opinion'] ?></p>
+
+<form action="" method="post">
+    <b>Введите ваш отзыв:</b>
+    <textarea rows="10" cols="30" name="comment"></textarea>
+    <input type="submit">
+</form>
+<form method='post'>
+<p>Введите количество товара:</p>
+<input type='number' name='quantity'>
+<input type='submit' value='Добавить в корзину'>
 </form>
 
 <a href="/gallery.php"> Back</a>
+<a href="/basket.php"> Корзина</a>

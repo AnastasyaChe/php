@@ -5,6 +5,7 @@
             <img src= "<?=$image['description']?>" alt='alt' width='200'>
         </a>
     <? endforeach?>
-    
+
+    <a href= "/lk.php"> Личный кабинет </a> 
     
     
