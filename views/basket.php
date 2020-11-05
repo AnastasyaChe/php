@@ -9,17 +9,16 @@
 </style>
 
 <table>
-    <?php foreach ($_SESSION['products'] as $product): ?>
+    <?php foreach ($basket as $item): ?>
     <tr>
         <td>
-            <?= $product['id'] ?>
+            <?= $item['product']['name'] ?>
         </td>
         <td>
-            <?= $product['name'] ?>
-        </td>
-        <td>
-            <input type='number' value="<?= $product['quantity'] ?>" name='product[quanty]'>
+            <?= $item['qty'] ?>
         </td>
     </tr>
     <?php endforeach; ?>
 </table>
+
+<a href="/basket/order">Перейти к оформлению товара</a>
