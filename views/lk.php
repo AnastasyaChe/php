@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="/basket/change" method="post">
 <?php foreach ($basket as $item): ?>
 <tr>
         <td>
@@ -8,10 +8,12 @@
             <?= $item['product']['price']?>
         </td>
         <td>
-        <input type="number" value="<?= $item['qty'] ?>" name="product[<?=$product['id']?>]">
+        <input type="number" value="<?= $item['qty']?>" name="quantity[<?=$item['product']['id']?>]">
         </td>
-    </tr>
+</tr>
+<hr/>
+
 <?php endforeach; ?>
 <input type="submit" value="Оформить заказ">
+    
 </form>
-

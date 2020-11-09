@@ -68,3 +68,7 @@ function getAllInfo()
 {
     return queryOne("SELECT * FROM user_info");
 }
+function delete(int $id)
+{
+    return execute("DELETE FROM orders WHERE product_id = {$id}");
+}

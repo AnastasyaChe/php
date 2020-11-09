@@ -5,10 +5,33 @@
 <h3>Цена</h3>
 <p><?=$product['price'] ?></p>
 
-<form action="/basket/add" method='post'>
-<input type="hidden" value="<?=$product['id']?>" name="id">
 <p>Введите количество товара:</p>
-<input type='number' value="0" name='quantity'>
-<input type='submit' value='Добавить в корзину'>
-</form>
+    <input id="qty_input" type="number" value="0" name="qty">
+    <input data-id="<?=$product['id']?>" id="add_to_card" type="submit" value="Добавить в корзину">
+<script>
 
+    $(function () {
+        $("#add_to_card").on('click', function () {
+            var id = $(this).data('id');
+            var qty = $("#qty_input").val();
+            console.log(id);
+            console.log(qty);
+
+            $.ajax({
+                url : "/basket/add",
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    id: id,
+                    qty: qty
+                },
+                success : function (response) {
+                    response = JSON.parse(response);
+                    if(response.status == 'success'){
+                        alert(response.message)
+                    }
+                }
+            })
+        })
+    })
+</script>

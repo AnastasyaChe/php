@@ -19,14 +19,5 @@ if(!empty($_SESSION['basket'])) {
     
 }
 
-
-if ($_SERVER['REQUEST_METHOD'] =='POST') {
-    $newQnty = post('product');
-    
-       
-}
-   
-    
-   
 echo render('lk', ['basket' => $basket]);
 ?>
