@@ -18,7 +18,6 @@ function getConnection(){
 function execute(string $sql): int
 {
     $result = mysqli_query(getConnection(), $sql);
-    var_dump($result);
     return mysqli_affected_rows(getConnection());
 }
 

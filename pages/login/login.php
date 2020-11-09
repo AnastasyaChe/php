@@ -1,8 +1,4 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '\..\config\main.php';
-require ENGINE_DIR . "base.php";
-require ENGINE_DIR . "db.php";
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = post('login');
     $password = post('password');
